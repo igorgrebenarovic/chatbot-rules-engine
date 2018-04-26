@@ -22,6 +22,8 @@ export async function ResponsePreprocessing (locationOrder: string, response: st
     const currentCard = card[version][locationOrder];
 
     let result: any;
+    let pet: any;
+    let instrument: any;
     if (currentCard.purpose) {
         switch (currentCard.purpose.toLowerCase()) {
             case "updateage":
@@ -29,11 +31,48 @@ export async function ResponsePreprocessing (locationOrder: string, response: st
                 result = response;
                 break;
             case "updatepet":
-                await userRepository.postUserPet(response, phoneNumber);
+                switch (response) {
+                    case "1":
+                        pet = "Dog";
+                        break;
+                    case "2":
+                        pet = "Cat";
+                        break;
+                    case "3":
+                        pet = "Parrot";
+                        break;
+                    case "4":
+                        pet = "Lizard";
+                        break;
+                    case "5":
+                        pet = "Fish";
+                        break;
+                    case "6":
+                        pet = "Monkey";
+                        break;
+                }
+                await userRepository.postUserPet(pet, phoneNumber);
                 result = response;
                 break;
             case "updateinstrument":
-                await userRepository.postUserInstrument(response, phoneNumber);
+                switch (response) {
+                    case "1":
+                        instrument = "Guitar";
+                        break;
+                    case "2":
+                        instrument = "Drums";
+                        break;
+                    case "3":
+                        instrument = "Piano";
+                        break;
+                    case "4":
+                        instrument = "Bas guitar";
+                        break;
+                    case "5":
+                        instrument = "Violin";
+                        break;
+                }
+                await userRepository.postUserInstrument(instrument, phoneNumber);
                 result = response;
                 break;
         }
@@ -84,3 +123,5 @@ export function generateUserCollection (name: any, phoneNumber: any) {
     ));
     return userCollection;
 }
+
+
