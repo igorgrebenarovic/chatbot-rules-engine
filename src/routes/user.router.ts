@@ -120,8 +120,8 @@ export const postUserInfo = async (req: Request, res: Response) => {
     if (!name || !phoneNumber ) {
         return res.status(400).json({ error: "Please enter inputs." });
     }
-    const userDemoDocument = generateUserCollection(name, phoneNumber);
-    const result = await userRepository.postUserInfo(userDemoDocument);
+    const userDocument = generateUserCollection(name, phoneNumber);
+    const result = await userRepository.postUserInfo(userDocument);
 
     res.json({ message: "OK" });
 };
@@ -158,13 +158,13 @@ export const postUserInfo = async (req: Request, res: Response) => {
  *         description: Incorrect parameters
  */
 export const postUserInfoAndTriggerConversation = async (req: Request, res: Response) => {
-    const { name, dob, city, phoneNumber } = req.query;
+    const { name, phoneNumber } = req.query;
 
-    if (!name || !dob || !city || !phoneNumber ) {
+    if (!name || !phoneNumber ) {
         return res.status(400).json({ error: "Please enter inputs." });
     }
-    const userDemoDocument = generateUserCollection(name, phoneNumber);
-    const result = await userRepository.postUserInfo(userDemoDocument);
+    const userDocument = generateUserCollection(name, phoneNumber);
+    const result = await userRepository.postUserInfo(userDocument);
 
     const locationOrder: any = "A01";
     const response: any = "Starting conversation...";
