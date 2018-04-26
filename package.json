@@ -1,0 +1,115 @@
+{
+  "name": "apiapprules",
+  "version": "0.1.0",
+  "description": "API for frictionless frontend",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/frictionless-mo/moapi.git"
+  },
+  "author": "Aleks Kudic",
+  "license": "Automatic Services Copyright",
+  "scripts": {
+    "start": "npm run build && npm run watch",
+    "build": "npm run build-ts && npm run tslint && npm run copy-assets",
+    "serve": "nodemon dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve\"",
+    "copy-assets": "node copyAssets.js",
+    "test": "jest --forceExit",
+    "test:unit": "jest --testMatch=\"**/test/**/*.unit.test.ts\" --forceExit --runInBand",
+    "test:postman": "newman run test/postman/rulesAPI.postman_collection.json -e test/postman/dev_rulesApi.postman_environment.json",
+    "integration-test": "jest --testMatch=\"**/test/**/*.integration.test.ts\" --forceExit --runInBand",
+    "coverage": "jest --coverage",
+    "test:watch": "npm run test -- --watch",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "./node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/test/**/*.test.(ts|js)"
+    ],
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "@types/mongodb": "^2.2.16",
+    "ajv": "^5.5.1",
+    "ajv-keywords": "^2.1.1",
+    "applicationinsights": "^1.0.1",
+    "async": "^2.5.0",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "bson": "^2.0.2",
+    "compression": "^1.7.0",
+    "concurrently": "^3.5.0",
+    "cors": "^2.8.4",
+    "csv-parse": "^2.0.0",
+    "csv-types": "^0.3.1",
+    "csvjson": "^5.0.0",
+    "dotenv": "^4.0.0",
+    "errorhandler": "^1.5.0",
+    "es6-promise": "^4.1.1",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-validator": "^3.2.1",
+    "http": "0.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^7.4.2",
+    "lodash": "^4.17.5",
+    "log4js": "^2.5.2",
+    "mongodb": "^2.2.33",
+    "newman": "^3.9.3",
+    "node-rules": "^3.1.0",
+    "nodemon": "^1.17.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "passport-local": "^1.0.0",
+    "shelljs": "^0.7.8",
+    "swagger-jsdoc": "^1.9.7",
+    "twilio": "^3.13.1",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {
+    "@types/ajv": "^1.0.0",
+    "@types/async": "^2.0.40",
+    "@types/bcrypt-nodejs": "0.0.30",
+    "@types/body-parser": "^1.16.4",
+    "@types/compression": "0.0.33",
+    "@types/cors": "^2.8.1",
+    "@types/csv-parse": "^1.1.11",
+    "@types/dotenv": "^4.0.0",
+    "@types/errorhandler": "0.0.30",
+    "@types/express": "^4.0.36",
+    "@types/express-session": "^1.15.2",
+    "@types/isomorphic-fetch": "0.0.34",
+    "@types/jest": "^20.0.6",
+    "@types/jsonwebtoken": "^7.2.3",
+    "@types/lodash": "^4.14.85",
+    "@types/node": "^8.0.20",
+    "@types/passport": "^0.3.4",
+    "@types/passport-jwt": "^2.0.22",
+    "@types/passport-local": "^1.0.30",
+    "@types/request": "^2.0.3",
+    "@types/supertest": "^2.0.2",
+    "@types/supertest-as-promised": "^2.0.34",
+    "@types/swagger-jsdoc": "0.0.1",
+    "jest": "^20.0.4",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2",
+    "ts-jest": "^20.0.10",
+    "tslint": "^5.6.0",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2"
+  }
+}

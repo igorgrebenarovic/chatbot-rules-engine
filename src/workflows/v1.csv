@@ -1,0 +1,22 @@
+locationOrder,purpose,dbField,fieldName,expression,checkValues,posRes,negRes,question
+A01,updateAge,,A01,equality,Yes,A02,A01,"Hi <name>! 
+My name is Buddy and I'm here to show you what I can do. I have a lot more to learn, but I'm very young. How old are you?"
+A02,updatePet,,A02,equality,1|2|3|4|5|6,B01,A03,"Thanks for the answer, I'll note that. If you would choose a pet to have, what would you choose from following: 
+1. Dog
+2. Cat
+3. Parrot
+4. Lizard
+5. Fish
+6. Monkey
+Please specify the number left to the pet."
+A03,,,A03,equality,yes|sure|ok|of course|why not|hell yeah,A02,A04,"Would you like to talk about pets? Send me ""yes"" if you want, otherwise we can talk about other things."
+A04,updateInstrument,,A04,equality,1|2|3|4|5,C01,A05,"Which of the following do you consider as your favorite musical instrument:
+1. Guitar
+2. Drums
+3. Piano
+4. Bas giutar
+5. Violin
+Please specify the number left to the pet."
+A05,,,A05,equality,ok,Complete,Complete,Thank you for your time <name>. Have a nice day.
+B01,,,B01,equality,yes|sure|ok|of course|why not|hell yeah,A04,A05,"<pet> is a nice choice. I like it. I'm a big fan of animals. If I have to choose between these, I would have monkey. They are so cute. Would you like to talk about music?"
+C01,,,C01,equality,ok,Complete,Complete,<instrument> is great! You gave me an great idea. I'll go listen to some classic rock. Talk to you soon <name>! 

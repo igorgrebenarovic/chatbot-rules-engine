@@ -1,0 +1,38 @@
+{
+  "name" : "string",
+  "phoneNumber" : "string",
+  "age" : "string",
+  "pet" : "string",
+  "instrument" : "string",
+  "conversationHistory": {
+    "type": "array",
+    "items": [
+      {
+        "type": "object",
+        "properties": {
+          "locationOrder": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "response": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "locationOrder",
+          "question",
+          "response"
+        ]
+      }
+    ]
+  },
+  "required": [
+    "name",
+    "phoneNumber",
+    "age",
+    "pet",
+    "conversationHistory"
+  ]
+}
